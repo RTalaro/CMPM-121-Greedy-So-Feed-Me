@@ -16,3 +16,8 @@ button.addEventListener("click", () => {
   age = age + 1;
   counter.textContent = age.toString();
 });
+
+let everySec = setInterval(() => {
+  age = age + 1;
+  counter.textContent = age.toString();
+}, 1000);
