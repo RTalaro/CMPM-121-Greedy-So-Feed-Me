@@ -17,7 +17,8 @@ button.addEventListener("click", () => {
   counter.textContent = age.toString();
 });
 
-let everySec = setInterval(() => {
+const everySec: number = setInterval(() => {
   age = age + 1;
   counter.textContent = age.toString();
+  console.log(everySec); //provides ID of this timer to remove squiggly
 }, 1000);
