@@ -17,8 +17,23 @@ button.addEventListener("click", () => {
   counter.textContent = age.toString();
 });
 
-const everySec: number = setInterval(() => {
-  age = age + 1;
+//const everySec: number = setInterval(() => {
+//  age = age + 1;
+//  counter.textContent = age.toString();
+//  console.log(everySec); //provides ID of this timer to remove squiggly
+//}, 1000);
+
+let lastFrame = performance.now();
+
+function everySec(perf: number) {
+  const currTime = perf;
+  const deltaTime = currTime - lastFrame;
+  lastFrame = currTime;
+  const fps = 1000 / deltaTime;
+
+  age = age + 1 / fps;
   counter.textContent = age.toString();
-  console.log(everySec); //provides ID of this timer to remove squiggly
-}, 1000);
+  requestAnimationFrame(everySec);
+}
+
+requestAnimationFrame(everySec);
