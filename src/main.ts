@@ -1,28 +1,21 @@
-import exampleIconUrl from "./noun-paperclip-7598668-00449F.png";
 import "./style.css";
 
 let age: number = 1;
 
 document.body.innerHTML = `
-  <p>Example image asset: <img src="${exampleIconUrl}" class="icon" /></p>
   <div>Age: <span id = "age">${age}</span></div>
-  <button id = "clicker">Happy Birthday!🎉</button>
+  <button id = "clicker">Gluttonous Desire 🍴</button>
+  <button id = "upgradeFriends">Eat a Fry</button>
 `;
 
-const button = document.getElementById("clicker")!;
 const counter = document.getElementById("age")!;
+const clicker = document.getElementById("clicker")! as HTMLButtonElement;
+const upgradeFriends = document.getElementById(
+  "upgradeFriends",
+)! as HTMLButtonElement;
+upgradeFriends.disabled = true;
 
-button.addEventListener("click", () => {
-  age = age + 1;
-  counter.textContent = age.toString();
-});
-
-//const everySec: number = setInterval(() => {
-//  age = age + 1;
-//  counter.textContent = age.toString();
-//  console.log(everySec); //provides ID of this timer to remove squiggly
-//}, 1000);
-
+let growthRate = 0;
 let lastFrame = performance.now();
 
 function everySec(perf: number) {
@@ -31,9 +24,23 @@ function everySec(perf: number) {
   lastFrame = currTime;
   const fps = 1000 / deltaTime;
 
-  age = age + 1 / fps;
+  age = age + growthRate / fps;
   counter.textContent = age.toString();
+
+  if (age >= 10) upgradeFriends.disabled = false;
+  else upgradeFriends.disabled = true;
+
   requestAnimationFrame(everySec);
 }
-
 requestAnimationFrame(everySec);
+
+clicker.addEventListener("click", () => {
+  age = age + 1;
+  counter.textContent = age.toString();
+});
+
+upgradeFriends.addEventListener("click", () => {
+  growthRate = growthRate + 1;
+  age = age - 10;
+  counter.textContent = age.toString();
+});
