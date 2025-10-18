@@ -1,14 +1,14 @@
 import "./style.css";
 
-let age: number = 1;
+let desire: number = 1;
 
 document.body.innerHTML = `
-  <div>Age: <span id = "age">${age}</span></div>
-  <button id = "clicker">Gluttonous Desire 🍴</button>
+  <div>Gluttonous Desire: <span id = "desire">${desire}</span></div>
+  <button id = "clicker">Hungry... 🍴</button>
   <button id = "upgradeFriends">Eat a Fry</button>
 `;
 
-const counter = document.getElementById("age")!;
+const counter = document.getElementById("desire")!;
 const clicker = document.getElementById("clicker")! as HTMLButtonElement;
 const upgradeFriends = document.getElementById(
   "upgradeFriends",
@@ -24,10 +24,10 @@ function everySec(perf: number) {
   lastFrame = currTime;
   const fps = 1000 / deltaTime;
 
-  age = age + growthRate / fps;
-  counter.textContent = age.toString();
+  desire = desire + growthRate / fps;
+  counter.textContent = desire.toString();
 
-  if (age >= 10) upgradeFriends.disabled = false;
+  if (desire >= 10) upgradeFriends.disabled = false;
   else upgradeFriends.disabled = true;
 
   requestAnimationFrame(everySec);
@@ -35,12 +35,12 @@ function everySec(perf: number) {
 requestAnimationFrame(everySec);
 
 clicker.addEventListener("click", () => {
-  age = age + 1;
-  counter.textContent = age.toString();
+  desire = desire + 1;
+  counter.textContent = desire.toString();
 });
 
 upgradeFriends.addEventListener("click", () => {
   growthRate = growthRate + 1;
-  age = age - 10;
-  counter.textContent = age.toString();
+  desire = desire - 10;
+  counter.textContent = desire.toString();
 });
