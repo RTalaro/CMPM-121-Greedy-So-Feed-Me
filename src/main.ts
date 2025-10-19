@@ -21,13 +21,27 @@ document.body.innerHTML = `
   <div><span id="desire">${desire}</span> Foods in mind...</div>
   <div>Gluttonous Desire Grows at <span id="growth">${growthRate}</span> Foods/sec</div>
   <button id="breath button">Breathe 💨</button>
-  <div>Took <span id="breath count">${allPurchases[0].count}</span> Breaths</div>
-  <div><button id="water button">Drink Water</button> to satiate Desire by <span id="water price">${allPurchases[1].price}</span> Foods</div>
-  <div>Downed <span id="water count">${allPurchases[1].count}</span> Bottles of Water</div>
-  <div><button id="fridge button">Check the Fridge</button> to satiate Desire by <span id="fridge price">${allPurchases[2].price}</span> Foods</div>
-  <div>Checked Fridge <span id="fridge count">${allPurchases[2].count}</span> Times</div>
-  <div><button id="cracker button">Eat a Cracker</button> to satiate Desire by <span id="cracker price">${allPurchases[3].price}</span> Foods</div>
-  <div>Eaten <span id="cracker count">${allPurchases[3].count}</span> Crackers</div>
+  <div>Took <span id="breath count">${
+  allPurchases[0].count
+}</span> Breaths</div>
+  <div><button id="water button">Drink Water</button> to satiate Desire by <span id="water price">${
+  allPurchases[1].price
+}</span> Foods</div>
+  <div>Downed <span id="water count">${
+  allPurchases[1].count
+}</span> Bottles of Water</div>
+  <div><button id="fridge button">Check the Fridge</button> to satiate Desire by <span id="fridge price">${
+  allPurchases[2].price
+}</span> Foods</div>
+  <div>Checked Fridge <span id="fridge count">${
+  allPurchases[2].count
+}</span> Times</div>
+  <div><button id="cracker button">Eat a Cracker</button> to satiate Desire by <span id="cracker price">${
+  allPurchases[3].price
+}</span> Foods</div>
+  <div>Eaten <span id="cracker count">${
+  allPurchases[3].count
+}</span> Crackers</div>
 `;
 
 const counter = document.getElementById("desire")! as HTMLElement;
@@ -46,11 +60,12 @@ function everySec(perf: number) {
   counter.textContent = desire.toFixed(2);
 
   for (const purchase of allPurchases) {
-    const button = document.getElementById(purchase.label + " button")! as HTMLButtonElement;
+    const button = document.getElementById(
+      purchase.label + " button",
+    )! as HTMLButtonElement;
     if (desire >= purchase.price) {
       button.disabled = false;
-    }
-    else button.disabled = true;
+    } else button.disabled = true;
   }
 
   requestAnimationFrame(everySec);
@@ -58,9 +73,15 @@ function everySec(perf: number) {
 requestAnimationFrame(everySec);
 
 for (const purchase of allPurchases) {
-  const button = document.getElementById(purchase.label + " button")! as HTMLButtonElement;
-  const countLabel = document.getElementById(purchase.label + " count")! as HTMLElement;
-  const priceLabel = document.getElementById(purchase.label + " price")! as HTMLElement;
+  const button = document.getElementById(
+    purchase.label + " button",
+  )! as HTMLButtonElement;
+  const countLabel = document.getElementById(
+    purchase.label + " count",
+  )! as HTMLElement;
+  const priceLabel = document.getElementById(
+    purchase.label + " price",
+  )! as HTMLElement;
   button.addEventListener("click", () => {
     desire -= purchase.price;
     counter.textContent = desire.toFixed(2);
