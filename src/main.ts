@@ -58,7 +58,7 @@ const allPurchases: Purchase[] = [
 
 document.body.innerHTML = `
   <h2><span id="desire">${desire}</span> Foods in mind...</h2>
-  <h2>Gluttonous Desire Grows at <span id="growth">${growthRate}</span> Foods/sec</h2>
+  <h2>Gluttonous Desire Grows at <span id="growth">${growthRate.toFixed(2)}</span> Foods/sec</h2>
 
   <h1>${allPurchases[0].desc}</h1>
   <button id="breath button">Breathe 💨</button>
