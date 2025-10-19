@@ -11,15 +11,15 @@ let crackerCount = 0;
 let crackerPrice = 1000;
 
 document.body.innerHTML = `
-  <div>Gluttonous Desire: <span id="desire">${desire}</span></div>
-  <div>Hunger Grows at <span id="growth">${growthRate}</span> units/sec</div>
-  <button id="clicker">Breathe 💨</button> (free!)
+  <div><span id="desire">${desire}</span> Foods in mind...</div>
+  <div>Gluttonous Desire Grows at <span id="growth">${growthRate}</span> Foods/sec</div>
+  <button id="clicker">Breathe 💨</button>
   <div>Took <span id="breath count">${breaths}</span> Breaths</div>
-  <div><button id="upgradeWater">Drink Water</button> to satiate desire by <span id="water price">${waterPrice}</span></div>
+  <div><button id="upgradeWater">Drink Water</button> to satiate Desire by <span id="water price">${waterPrice}</span> Foods</div>
   <div>Downed <span id="water count">${waterCount}</span> Bottles of Water</div>
-  <div><button id="upgradeFridge">Check the Fridge</button> to satiate desire by 100</div>
+  <div><button id="upgradeFridge">Check the Fridge</button> to satiate Desire by <span id="fridge price">${fridgePrice}</span> Foods</div>
   <div>Fridge Checked <span id="fridge count">${fridgeCount}</span> Times</div>
-  <div><button id="upgradeCracker">Eat a Cracker</button> to satiate desire by 1000</div>
+  <div><button id="upgradeCracker">Eat a Cracker</button> to satiate Desire by <span id="cracker price">${crackerPrice}</span> Foods</div>
   <div>Eaten <span id="cracker count">${crackerCount}</span> Crackers</div>
 `;
 
@@ -89,7 +89,7 @@ clicker.addEventListener("click", () => {
 upgradeWater.addEventListener("click", () => {
   growthRate = growthRate + .1;
   growth.textContent = growthRate.toFixed(2);
-  desire = desire - 10;
+  desire = desire - waterPrice;
   counter.textContent = desire.toFixed(2);
   waterCount += 1;
   waterPrice *= 1.15;
@@ -100,7 +100,7 @@ upgradeWater.addEventListener("click", () => {
 upgradeFridge.addEventListener("click", () => {
   growthRate = growthRate + 2;
   growth.textContent = growthRate.toFixed(2);
-  desire = desire - 100;
+  desire = desire - fridgePrice;
   counter.textContent = desire.toFixed(2);
   fridgeCount += 1;
   fridgePrice *= 1.15;
@@ -111,7 +111,7 @@ upgradeFridge.addEventListener("click", () => {
 upgradeCracker.addEventListener("click", () => {
   growthRate = growthRate + 50;
   growth.textContent = growthRate.toFixed(2);
-  desire = desire - 1000;
+  desire = desire - crackerPrice;
   counter.textContent = desire.toFixed(2);
   crackerCount += 1;
   crackerPrice *= 1.15;
