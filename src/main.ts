@@ -1,5 +1,7 @@
 import "./style.css";
 
+document.title = "Greedy So Feed Me :(";
+
 let desire: number = 0.0;
 let growthRate = 0;
 

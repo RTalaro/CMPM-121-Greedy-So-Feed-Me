@@ -1,3 +1,9 @@
-# CMPM 121 Greedy So Feed Me :(
+# Greedy So Feed Me :(
 
-Play as a broke and gluttonous college student (me). My love for desserts is beyond comprehension, but I tweaked the theme to cover a range of foods. Simply breathing makes me hungry... but sometimes I'm lazy to cook and cooking is hard. Do your best to satiate your (my) gluttonous desire! Enjoy :)
+Play as a broke and gluttonous college student (me). Your love for food is beyond comprehension, simply breathing makes you hunger... but sometimes you're lazy to cook and cooking is hard. Do your best to satiate your gluttonous desire!
+
+</br>
+With every breath you take, your hunger grows...</br>
+No matter what you do, the desire is there...</br>
+You try and satiate this monster to no avail and eventually, it will consume you...</br>
+(made for CMPM 121)
