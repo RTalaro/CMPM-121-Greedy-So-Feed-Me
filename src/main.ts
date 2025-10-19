@@ -1,43 +1,60 @@
 import "./style.css";
 
-let desire: number = 1;
+let desire: number = 0.0;
 let growthRate = 0;
 let breaths = 0;
-let upgradeACount = 0;
-let upgradeBCount = 0;
-let upgradeCCount = 0;
+let waterCount = 0;
+let waterPrice = 10;
+let fridgeCount = 0;
+let fridgePrice = 100;
+let crackerCount = 0;
+let crackerPrice = 1000;
 
 document.body.innerHTML = `
-  <div>Gluttonous Desire: <span id = "desire">${desire}</span></div>
-  <div>Hunger Grows at <span id = "growth">${growthRate} units/sec</span></div>
-  <button id = "clicker">Breathe 💨</button>
-  <div>Took <span id = "breath count">${breaths}</span> Breaths</div>
-  <div><button id = "upgradeDrinkWater">Drink Water</button></div>
-  <div>Downed <span id = "water count">${upgradeACount}</span> Bottles of Water</div>
-  <div><button id = "upgradeCheckFridge">Check the Fridge</button></div>
-  <div>Fridge Checked <span id = "fridge count">${upgradeBCount}</span> Times</div>
-  <div><button id = "upgradeEatCracker">Eat a Cracker</button></div>
-  <div>Eaten <span id = "cracker count">${upgradeCCount}</span> Crackers</div>
+  <div>Gluttonous Desire: <span id="desire">${desire}</span></div>
+  <div>Hunger Grows at <span id="growth">${growthRate}</span> units/sec</div>
+  <button id="clicker">Breathe 💨</button> (free!)
+  <div>Took <span id="breath count">${breaths}</span> Breaths</div>
+  <div><button id="upgradeWater">Drink Water</button> to satiate desire by <span id="water price">${waterPrice}</span></div>
+  <div>Downed <span id="water count">${waterCount}</span> Bottles of Water</div>
+  <div><button id="upgradeFridge">Check the Fridge</button> to satiate desire by 100</div>
+  <div>Fridge Checked <span id="fridge count">${fridgeCount}</span> Times</div>
+  <div><button id="upgradeCracker">Eat a Cracker</button> to satiate desire by 1000</div>
+  <div>Eaten <span id="cracker count">${crackerCount}</span> Crackers</div>
 `;
 
 const counter = document.getElementById("desire")! as HTMLElement;
+const growth = document.getElementById("growth")! as HTMLElement;
 const clicker = document.getElementById("clicker")! as HTMLButtonElement;
-const breathCount = document.getElementById("breath count")! as HTMLElement;
-const waterCount = document.getElementById("water count")! as HTMLElement;
-const fridgeCount = document.getElementById("fridge count")! as HTMLElement;
-const crackerCount = document.getElementById("cracker count")! as HTMLElement;
-const upgradeA = document.getElementById(
-  "upgradeDrinkWater",
+const breathCountLabel = document.getElementById(
+  "breath count",
+)! as HTMLElement;
+const waterCountLabel = document.getElementById("water count")! as HTMLElement;
+const waterPriceLabel = document.getElementById("water price")! as HTMLElement;
+const fridgeCountLabel = document.getElementById(
+  "fridge count",
+)! as HTMLElement;
+const fridgePriceLabel = document.getElementById(
+  "fridge price",
+)! as HTMLElement;
+const crackerCountLabel = document.getElementById(
+  "cracker count",
+)! as HTMLElement;
+const crackerPriceLabel = document.getElementById(
+  "cracker price",
+)! as HTMLElement;
+const upgradeWater = document.getElementById(
+  "upgradeWater",
 )! as HTMLButtonElement;
-const upgradeB = document.getElementById(
-  "upgradeCheckFridge",
+const upgradeFridge = document.getElementById(
+  "upgradeFridge",
 )! as HTMLButtonElement;
-const upgradeC = document.getElementById(
-  "upgradeEatCracker",
+const upgradeCracker = document.getElementById(
+  "upgradeCracker",
 )! as HTMLButtonElement;
-upgradeA.disabled = true;
-upgradeB.disabled = true;
-upgradeC.disabled = true;
+upgradeWater.disabled = true;
+upgradeFridge.disabled = true;
+upgradeCracker.disabled = true;
 
 let lastFrame = performance.now();
 
@@ -49,14 +66,14 @@ function everySec(perf: number) {
   const fps = 1000 / deltaTime;
 
   desire = desire + (growthRate / fps);
-  counter.textContent = desire.toString();
+  counter.textContent = desire.toFixed(2);
 
-  if (desire >= 10) upgradeA.disabled = false;
-  else upgradeA.disabled = true;
-  if (desire >= 100) upgradeB.disabled = false;
-  else upgradeB.disabled = true;
-  if (desire >= 1000) upgradeC.disabled = false;
-  else upgradeC.disabled = true;
+  if (desire >= waterPrice) upgradeWater.disabled = false;
+  else upgradeWater.disabled = true;
+  if (desire >= fridgePrice) upgradeFridge.disabled = false;
+  else upgradeFridge.disabled = true;
+  if (desire >= crackerPrice) upgradeCracker.disabled = false;
+  else upgradeCracker.disabled = true;
 
   requestAnimationFrame(everySec);
 }
@@ -64,31 +81,40 @@ requestAnimationFrame(everySec);
 
 clicker.addEventListener("click", () => {
   desire = desire + 1;
-  counter.textContent = desire.toString();
+  counter.textContent = desire.toFixed(2);
   breaths += 1;
-  breathCount.textContent = breaths.toString();
+  breathCountLabel.textContent = breaths.toFixed(2);
 });
 
-upgradeA.addEventListener("click", () => {
+upgradeWater.addEventListener("click", () => {
   growthRate = growthRate + .1;
+  growth.textContent = growthRate.toFixed(2);
   desire = desire - 10;
-  counter.textContent = desire.toString();
-  upgradeACount += 1;
-  waterCount.textContent = upgradeACount.toString();
+  counter.textContent = desire.toFixed(2);
+  waterCount += 1;
+  waterPrice *= 1.15;
+  waterCountLabel.textContent = waterCount.toFixed(2);
+  waterPriceLabel.textContent = waterPrice.toFixed(2);
 });
 
-upgradeB.addEventListener("click", () => {
+upgradeFridge.addEventListener("click", () => {
   growthRate = growthRate + 2;
+  growth.textContent = growthRate.toFixed(2);
   desire = desire - 100;
-  counter.textContent = desire.toString();
-  upgradeBCount += 1;
-  fridgeCount.textContent = upgradeBCount.toString();
+  counter.textContent = desire.toFixed(2);
+  fridgeCount += 1;
+  fridgePrice *= 1.15;
+  fridgeCountLabel.textContent = fridgeCount.toFixed(2);
+  fridgePriceLabel.textContent = fridgePrice.toFixed(2);
 });
 
-upgradeC.addEventListener("click", () => {
+upgradeCracker.addEventListener("click", () => {
   growthRate = growthRate + 50;
+  growth.textContent = growthRate.toFixed(2);
   desire = desire - 1000;
-  counter.textContent = desire.toString();
-  upgradeCCount += 1;
-  crackerCount.textContent = upgradeCCount.toString();
+  counter.textContent = desire.toFixed(2);
+  crackerCount += 1;
+  crackerPrice *= 1.15;
+  crackerCountLabel.textContent = crackerCount.toFixed(2);
+  crackerPriceLabel.textContent = crackerPrice.toFixed(2);
 });
