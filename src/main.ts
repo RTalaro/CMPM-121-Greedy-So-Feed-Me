@@ -5,43 +5,106 @@ let growthRate = 0;
 
 interface Purchase {
   label: string;
+  desc: string;
   price: number;
   count: number;
   rate: number;
 }
 
 const allPurchases: Purchase[] = [
-  { label: "breath", price: -1, count: 0, rate: 0 }, // price is -1 in order to add 1 to desire
-  { label: "water", price: 10, count: 0, rate: 0.1 },
-  { label: "fridge", price: 100, count: 0, rate: 2.0 },
-  { label: "cracker", price: 1000, count: 0, rate: 50.0 },
+  {
+    label: "breath",
+    desc: "To breathe is to hunger...",
+    price: -1,
+    count: 0,
+    rate: 0,
+  }, // price is -1 in order to add 1 to desire
+  {
+    label: "water",
+    desc: "Maybe drinking water will help?",
+    price: 10,
+    count: 0,
+    rate: 0.1,
+  },
+  {
+    label: "fridge",
+    desc: "Maybe there will be food in the fridge...",
+    price: 100,
+    count: 0,
+    rate: 2.0,
+  },
+  {
+    label: "cracker",
+    desc: "Maybe eating a cracker would help?",
+    price: 1000,
+    count: 0,
+    rate: 50.0,
+  },
+  {
+    label: "recipe",
+    desc: "Maybe reading some recipes will help...",
+    price: 10000,
+    count: 0,
+    rate: 100.0,
+  },
+  {
+    label: "video",
+    desc: "Maybe watching cooking would help?",
+    price: 100000,
+    count: 0,
+    rate: 500.0,
+  },
 ];
 
 document.body.innerHTML = `
-  <div><span id="desire">${desire}</span> Foods in mind...</div>
-  <div>Gluttonous Desire Grows at <span id="growth">${growthRate}</span> Foods/sec</div>
+  <h2><span id="desire">${desire}</span> Foods in mind...</h2>
+  <h2>Gluttonous Desire Grows at <span id="growth">${growthRate}</span> Foods/sec</h2>
+
+  <h1>${allPurchases[0].desc}</h1>
   <button id="breath button">Breathe 💨</button>
   <div>Took <span id="breath count">${
   allPurchases[0].count
 }</span> Breaths</div>
-  <div><button id="water button">Drink Water</button> to satiate Desire by <span id="water price">${
+  <p>
+  <h1>${allPurchases[1].desc}</h1>
+  <div><button id="water button">Drink Water 🥛</button> to satiate Desire by <span id="water price">${
   allPurchases[1].price
 }</span> Foods</div>
   <div>Downed <span id="water count">${
   allPurchases[1].count
 }</span> Bottles of Water</div>
-  <div><button id="fridge button">Check the Fridge</button> to satiate Desire by <span id="fridge price">${
+  <p>
+  <h1>${allPurchases[2].desc}</h1>
+  <div><button id="fridge button">Check the Fridge 🧊</button> to satiate Desire by <span id="fridge price">${
   allPurchases[2].price
 }</span> Foods</div>
   <div>Checked Fridge <span id="fridge count">${
   allPurchases[2].count
 }</span> Times</div>
-  <div><button id="cracker button">Eat a Cracker</button> to satiate Desire by <span id="cracker price">${
+  <p>
+  <h1>${allPurchases[3].desc}</h1>
+  <div><button id="cracker button">Eat a Cracker 🍘</button> to satiate Desire by <span id="cracker price">${
   allPurchases[3].price
 }</span> Foods</div>
   <div>Eaten <span id="cracker count">${
   allPurchases[3].count
 }</span> Crackers</div>
+  <p>
+  <h1>${allPurchases[4].desc}</h1>
+  <div><button id="recipe button">Read a Recipe Online 📖</button> to satiate Desire by <span id="recipe price">${
+  allPurchases[4].price
+}</span> Foods</div>
+  <div>Read <span id="recipe count">${
+  allPurchases[4].count
+}</span> Recipes</div>
+  <p>
+  <h1>${allPurchases[5].desc}</h1>
+  <div><button id="video button">Watch a Cooking Video ▶️</button> to satiate Desire by <span id="video price">${
+  allPurchases[5].price
+}</span> Foods</div>
+  <div>Watched <span id="video count">${
+  allPurchases[5].count
+}</span> Videos</div>
 `;
 
 const counter = document.getElementById("desire")! as HTMLElement;

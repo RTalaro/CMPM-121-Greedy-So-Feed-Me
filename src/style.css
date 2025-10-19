@@ -3,3 +3,43 @@
   vertical-align: top;
   border: 1px solid salmon;
 }
+
+body {
+  color: chocolate;
+  background-color: rgb(255, 241, 222);
+  font-family:
+    "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+h1 {
+  font-size: smaller;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 25%;
+}
+
+h2 {
+  font-size: large;
+  font-style: bold;
+  line-height: 25%;
+}
+
+button {
+  color: peru;
+  border-radius: 5px;
+  border-color: rgb(155, 131, 59);
+  background-color: rgb(236, 211, 173);
+  font-family:
+    "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+:disabled {
+  color: rgb(164, 144, 124);
+  border-color: rgb(164, 155, 124);
+  background-color: rgb(213, 194, 166);
+  font-family:
+    "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
