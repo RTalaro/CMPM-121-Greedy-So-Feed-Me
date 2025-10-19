@@ -1,3 +1,3 @@
-# CMPM 121 D1 Project
+# CMPM 121 Greedy So Feed Me :(
 
-This is the starting point for your CMPM 121 D1 project. The goal of this project is to create a simple web application using TypeScript, Vite, and modern web development practices. Students should make sure to remove _this_ content from their README.md file and replace it with their own project documentation.
+Play as a broke and gluttonous college student (me). My love for desserts is beyond comprehension, but I tweaked the theme to cover a range of foods. Simply breathing makes me hungry... do your best to satiate your hunger! Enjoy :)
