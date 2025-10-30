@@ -119,11 +119,11 @@ let lastFrame = performance.now();
 function everySec(perf: number) {
   console.log(growthRate);
   const currTime = perf;
-  const deltaTime = currTime - lastFrame;
+  const elapsedMillis = currTime - lastFrame;
   lastFrame = currTime;
-  const fps = 1000 / deltaTime;
+  const estimatedFPS = 1000 / elapsedMillis;
 
-  desire = desire + (growthRate / fps);
+  desire = desire + (growthRate / estimatedFPS);
   counter.textContent = desire.toFixed(2);
 
   for (const purchase of allPurchases) {
