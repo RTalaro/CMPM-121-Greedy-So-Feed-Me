@@ -58,58 +58,62 @@ const allPurchases: Purchase[] = [
   },
 ];
 
-document.body.innerHTML = `
+function renderUI() {
+  document.body.innerHTML = `
   <h2><span id="desire">${desire}</span> Foods in mind...</h2>
   <h2>Gluttonous Desire Grows at <span id="growth">${
-  growthRate.toFixed(2)
-}</span> Foods/sec</h2>
+    growthRate.toFixed(2)
+  }</span> Foods/sec</h2>
 
   <h1>${allPurchases[0].desc}</h1>
   <button id="breath button">Breathe 💨</button>
   <div>Took <span id="breath count">${
-  allPurchases[0].count
-}</span> Breaths</div>
-  <p>
-  <h1>${allPurchases[1].desc}</h1>
-  <div><button id="water button">Drink Water 🥛</button> to satiate Desire by <span id="water price">${
-  allPurchases[1].price
-}</span> Foods</div>
-  <div>Downed <span id="water count">${
-  allPurchases[1].count
-}</span> Bottles of Water</div>
-  <p>
-  <h1>${allPurchases[2].desc}</h1>
-  <div><button id="fridge button">Check the Fridge 🧊</button> to satiate Desire by <span id="fridge price">${
-  allPurchases[2].price
-}</span> Foods</div>
-  <div>Checked Fridge <span id="fridge count">${
-  allPurchases[2].count
-}</span> Times</div>
-  <p>
-  <h1>${allPurchases[3].desc}</h1>
-  <div><button id="cracker button">Eat a Cracker 🍘</button> to satiate Desire by <span id="cracker price">${
-  allPurchases[3].price
-}</span> Foods</div>
-  <div>Eaten <span id="cracker count">${
-  allPurchases[3].count
-}</span> Crackers</div>
-  <p>
-  <h1>${allPurchases[4].desc}</h1>
-  <div><button id="recipe button">Read a Recipe Online 📖</button> to satiate Desire by <span id="recipe price">${
-  allPurchases[4].price
-}</span> Foods</div>
-  <div>Read <span id="recipe count">${
-  allPurchases[4].count
-}</span> Recipes</div>
-  <p>
-  <h1>${allPurchases[5].desc}</h1>
-  <div><button id="video button">Watch a Cooking Video ▶️</button> to satiate Desire by <span id="video price">${
-  allPurchases[5].price
-}</span> Foods</div>
-  <div>Watched <span id="video count">${
-  allPurchases[5].count
-}</span> Videos</div>
-`;
+    allPurchases[0].count
+  }</span> Breaths</div>
+    <p>
+    <h1>${allPurchases[1].desc}</h1>
+    <div><button id="water button">Drink Water 🥛</button> to satiate Desire by <span id="water price">${
+    allPurchases[1].price
+  }</span> Foods</div>
+    <div>Downed <span id="water count">${
+    allPurchases[1].count
+  }</span> Bottles of Water</div>
+    <p>
+    <h1>${allPurchases[2].desc}</h1>
+    <div><button id="fridge button">Check the Fridge 🧊</button> to satiate Desire by <span id="fridge price">${
+    allPurchases[2].price
+  }</span> Foods</div>
+    <div>Checked Fridge <span id="fridge count">${
+    allPurchases[2].count
+  }</span> Times</div>
+    <p>
+    <h1>${allPurchases[3].desc}</h1>
+    <div><button id="cracker button">Eat a Cracker 🍘</button> to satiate Desire by <span id="cracker price">${
+    allPurchases[3].price
+  }</span> Foods</div>
+    <div>Eaten <span id="cracker count">${
+    allPurchases[3].count
+  }</span> Crackers</div>
+    <p>
+    <h1>${allPurchases[4].desc}</h1>
+    <div><button id="recipe button">Read a Recipe Online 📖</button> to satiate Desire by <span id="recipe price">${
+    allPurchases[4].price
+  }</span> Foods</div>
+    <div>Read <span id="recipe count">${
+    allPurchases[4].count
+  }</span> Recipes</div>
+    <p>
+    <h1>${allPurchases[5].desc}</h1>
+    <div><button id="video button">Watch a Cooking Video ▶️</button> to satiate Desire by <span id="video price">${
+    allPurchases[5].price
+  }</span> Foods</div>
+    <div>Watched <span id="video count">${
+    allPurchases[5].count
+  }</span> Videos</div>
+  `;
+}
+
+renderUI();
 
 const counter = document.getElementById("desire")! as HTMLElement;
 const growth = document.getElementById("growth")! as HTMLElement;
