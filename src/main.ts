@@ -118,17 +118,15 @@ renderUI();
 const counter = document.getElementById("desire")! as HTMLElement;
 const growth = document.getElementById("growth")! as HTMLElement;
 
-function everySec(perf: number) {
-  let lastFrame;
-  if (lastFrame == null) {
-    lastFrame = performance.now();
-  }
-  const currTime = perf;
-  const elapsedMillis = currTime - lastFrame!;
-  lastFrame = currTime;
-  const estimatedFPS = 100 / elapsedMillis;
+let lastFrame = performance.now();
 
-  desire = desire - (growthRate / estimatedFPS);
+function everySec(perf: number) {
+  const currTime = perf;
+  const elapsedMillis = currTime - lastFrame;
+  lastFrame = currTime;
+  const estimatedFPS = 1000 / elapsedMillis;
+
+  desire = desire + (growthRate / estimatedFPS);
   counter.textContent = desire.toFixed(2);
 
   for (const purchase of allPurchases) {
