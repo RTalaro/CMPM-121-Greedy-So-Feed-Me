@@ -119,7 +119,6 @@ const counter = document.getElementById("desire")! as HTMLElement;
 const growth = document.getElementById("growth")! as HTMLElement;
 
 function everySec(perf: number) {
-  console.log(growthRate);
   let lastFrame;
   if (lastFrame == null) {
     lastFrame = performance.now();
