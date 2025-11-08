@@ -72,40 +72,45 @@ function renderUI() {
     allPurchases[0].count
   }</span> Breaths</div>
     <p>
+    <div><button id="water button" class="upgrade-button" disabled>Drink Water 🥛</button></div>
     <h1>${allPurchases[1].desc}</h1>
-    <div><button id="water button" class="upgrade-button" disabled>Drink Water 🥛</button> to satiate Desire by <span id="water price">${
+    Satiate Desire by <span id="water price">${
     allPurchases[1].price
   }</span> Foods</div>
     <div>Downed <span id="water count">${
     allPurchases[1].count
   }</span> Bottles of Water</div>
     <p>
+    <div><button id="fridge button" class="upgrade-button" disabled>Check the Fridge 🧊</button></div>
     <h1>${allPurchases[2].desc}</h1>
-    <div><button id="fridge button" class="upgrade-button" disabled>Check the Fridge 🧊</button> to satiate Desire by <span id="fridge price">${
+    Satiate Desire by <span id="fridge price">${
     allPurchases[2].price
   }</span> Foods</div>
     <div>Checked Fridge <span id="fridge count">${
     allPurchases[2].count
   }</span> Times</div>
     <p>
+    <div><button id="cracker button" class="upgrade-button" disabled>Eat a Cracker 🍘</button></div>
     <h1>${allPurchases[3].desc}</h1>
-    <div><button id="cracker button" class="upgrade-button" disabled>Eat a Cracker 🍘</button> to satiate Desire by <span id="cracker price">${
+    Satiate Desire by <span id="cracker price">${
     allPurchases[3].price
   }</span> Foods</div>
     <div>Eaten <span id="cracker count">${
     allPurchases[3].count
   }</span> Crackers</div>
     <p>
+    <div><button id="recipe button" class="upgrade-button" disabled>Read a Recipe Online 📖</button></div>
     <h1>${allPurchases[4].desc}</h1>
-    <div><button id="recipe button" class="upgrade-button" disabled>Read a Recipe Online 📖</button> to satiate Desire by <span id="recipe price">${
+    Satiate Desire by <span id="recipe price">${
     allPurchases[4].price
   }</span> Foods</div>
     <div>Read <span id="recipe count">${
     allPurchases[4].count
   }</span> Recipes</div>
     <p>
+    <div><button id="video button" class="upgrade-button" disabled>Watch a Cooking Video ▶️</button></div>
     <h1>${allPurchases[5].desc}</h1>
-    <div><button id="video button" class="upgrade-button" disabled>Watch a Cooking Video ▶️</button> to satiate Desire by <span id="video price">${
+    Satiate Desire by <span id="video price">${
     allPurchases[5].price
   }</span> Foods</div>
     <div>Watched <span id="video count">${

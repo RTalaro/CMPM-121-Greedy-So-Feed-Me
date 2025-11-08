@@ -4,12 +4,14 @@
   border: 1px solid salmon;
 }
 
+/* center alignment from kljeung*/
 body {
   color: chocolate;
   background-color: rgb(255, 241, 222);
   font-family:
     "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  text-align: center;
 }
 
 h1 {
