@@ -25,7 +25,20 @@ h2 {
   line-height: 25%;
 }
 
-button {
+#breath-button {
+  height: 50px;
+  color: peru;
+  border-radius: 10px;
+  border-color: rgb(155, 131, 59);
+  background-color: rgb(236, 211, 173);
+  font-family:
+    "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: large;
+}
+
+/* upgrade button class structure from kaitlyn-png*/
+.upgrade-button {
   color: peru;
   border-radius: 5px;
   border-color: rgb(155, 131, 59);
@@ -35,7 +48,7 @@ button {
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
-:disabled {
+.upgrade-button:disabled {
   color: rgb(164, 144, 124);
   border-color: rgb(164, 155, 124);
   background-color: rgb(213, 194, 166);

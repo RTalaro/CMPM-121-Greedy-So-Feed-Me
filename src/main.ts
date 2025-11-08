@@ -58,6 +58,7 @@ const allPurchases: Purchase[] = [
   },
 ];
 
+/* upgrade button class structure from kaitlyn-png*/
 function renderUI() {
   document.body.innerHTML = `
   <h2><span id="desire">${desire}</span> Foods in mind...</h2>
@@ -66,13 +67,13 @@ function renderUI() {
   }</span> Foods/sec</h2>
 
   <h1>${allPurchases[0].desc}</h1>
-  <button id="breath button">Breathe 💨</button>
+  <button id="breath-button">Breathe 💨</button>
   <div>Took <span id="breath count">${
     allPurchases[0].count
   }</span> Breaths</div>
     <p>
     <h1>${allPurchases[1].desc}</h1>
-    <div><button id="water button">Drink Water 🥛</button> to satiate Desire by <span id="water price">${
+    <div><button id="water button" class="upgrade-button" disabled>Drink Water 🥛</button> to satiate Desire by <span id="water price">${
     allPurchases[1].price
   }</span> Foods</div>
     <div>Downed <span id="water count">${
@@ -80,7 +81,7 @@ function renderUI() {
   }</span> Bottles of Water</div>
     <p>
     <h1>${allPurchases[2].desc}</h1>
-    <div><button id="fridge button">Check the Fridge 🧊</button> to satiate Desire by <span id="fridge price">${
+    <div><button id="fridge button" class="upgrade-button" disabled>Check the Fridge 🧊</button> to satiate Desire by <span id="fridge price">${
     allPurchases[2].price
   }</span> Foods</div>
     <div>Checked Fridge <span id="fridge count">${
@@ -88,7 +89,7 @@ function renderUI() {
   }</span> Times</div>
     <p>
     <h1>${allPurchases[3].desc}</h1>
-    <div><button id="cracker button">Eat a Cracker 🍘</button> to satiate Desire by <span id="cracker price">${
+    <div><button id="cracker button" class="upgrade-button" disabled>Eat a Cracker 🍘</button> to satiate Desire by <span id="cracker price">${
     allPurchases[3].price
   }</span> Foods</div>
     <div>Eaten <span id="cracker count">${
@@ -96,7 +97,7 @@ function renderUI() {
   }</span> Crackers</div>
     <p>
     <h1>${allPurchases[4].desc}</h1>
-    <div><button id="recipe button">Read a Recipe Online 📖</button> to satiate Desire by <span id="recipe price">${
+    <div><button id="recipe button" class="upgrade-button" disabled>Read a Recipe Online 📖</button> to satiate Desire by <span id="recipe price">${
     allPurchases[4].price
   }</span> Foods</div>
     <div>Read <span id="recipe count">${
@@ -104,7 +105,7 @@ function renderUI() {
   }</span> Recipes</div>
     <p>
     <h1>${allPurchases[5].desc}</h1>
-    <div><button id="video button">Watch a Cooking Video ▶️</button> to satiate Desire by <span id="video price">${
+    <div><button id="video button" class="upgrade-button" disabled>Watch a Cooking Video ▶️</button> to satiate Desire by <span id="video price">${
     allPurchases[5].price
   }</span> Foods</div>
     <div>Watched <span id="video count">${
@@ -130,9 +131,14 @@ function everySec(perf: number) {
   counter.textContent = desire.toFixed(2);
 
   for (const purchase of allPurchases) {
-    const button = document.getElementById(
-      purchase.label + " button",
-    )! as HTMLButtonElement;
+    let button = null;
+    if (purchase.label == "breath") {
+      button = document.getElementById("breath-button")! as HTMLButtonElement;
+    } else {
+      button = document.getElementById(
+        purchase.label + " button",
+      )! as HTMLButtonElement;
+    }
     if (desire >= purchase.price) {
       button.disabled = false;
     } else button.disabled = true;
@@ -143,9 +149,14 @@ function everySec(perf: number) {
 requestAnimationFrame(everySec);
 
 for (const purchase of allPurchases) {
-  const button = document.getElementById(
-    purchase.label + " button",
-  )! as HTMLButtonElement;
+  let button = null;
+  if (purchase.label == "breath") {
+    button = document.getElementById("breath-button")! as HTMLButtonElement;
+  } else {
+    button = document.getElementById(
+      purchase.label + " button",
+    )! as HTMLButtonElement;
+  }
   const countLabel = document.getElementById(
     purchase.label + " count",
   )! as HTMLElement;

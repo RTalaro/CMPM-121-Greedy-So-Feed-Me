@@ -7,3 +7,9 @@ With every breath you take, your hunger grows...</br>
 No matter what you do, the desire is there...</br>
 You try and satiate this monster to no avail and eventually, it will consume you...</br>
 (made for CMPM 121)
+
+## Peer Inpspiration
+
+**Obvious main button inspired by [Kaitlyn Eng's Axolotl Clicker](https://github.com/kljeung/cmpm-121-f25-d1-kj/tree/main)**
+</br>
+**Center layout inspired by [kimi's CMPM 121 Project](https://github.com/kljeung/cmpm-121-f25-d1-kj)**
